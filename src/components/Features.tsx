@@ -25,14 +25,14 @@ const features = [
 
 const Features = () => {
   return (
-    <section className="py-20 px-4">
+    <section className="py-24 px-4">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16 animate-fade-in">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            Why Choose <span className="text-gradient">Lumina Pulse?</span>
+        <div className="text-center mb-20 animate-fade-in">
+          <h2 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight">
+            Enterprise-Grade <span className="text-gradient">Intelligence</span>
           </h2>
-          <p className="text-xl text-foreground/70 max-w-2xl mx-auto">
-            Harness the power of AI to make smarter marketing decisions backed by real data
+          <p className="text-lg md:text-xl text-foreground/60 max-w-2xl mx-auto font-light">
+            Harness the power of AI to make data-driven marketing decisions with confidence
           </p>
         </div>
 
@@ -40,14 +40,14 @@ const Features = () => {
           {features.map((feature, index) => (
             <div
               key={index}
-              className="glass glass-hover p-6 rounded-2xl space-y-4 animate-fade-in"
+              className="glass glass-hover p-8 rounded-3xl space-y-5 animate-fade-in group"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500 to-blue-500 flex items-center justify-center glow">
-                <feature.icon className="w-6 h-6 text-white" />
+              <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-purple-500 to-blue-500 flex items-center justify-center glow-sm group-hover:scale-110 transition-transform duration-300">
+                <feature.icon className="w-7 h-7 text-white" />
               </div>
-              <h3 className="text-xl font-semibold">{feature.title}</h3>
-              <p className="text-foreground/70 leading-relaxed">{feature.description}</p>
+              <h3 className="text-xl font-bold">{feature.title}</h3>
+              <p className="text-foreground/60 leading-relaxed text-sm font-light">{feature.description}</p>
             </div>
           ))}
         </div>

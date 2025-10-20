@@ -43,37 +43,37 @@ const EmailSignup = () => {
   };
 
   return (
-    <section id="email-signup" className="py-20 px-4">
-      <div className="max-w-3xl mx-auto">
-        <div className="glass p-12 rounded-3xl text-center space-y-6 animate-fade-in">
-          <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-br from-purple-500 to-blue-500 glow mb-4">
-            <Mail className="w-8 h-8 text-white" />
+    <section id="email-signup" className="py-24 px-4">
+      <div className="max-w-4xl mx-auto">
+        <div className="glass-strong p-12 md:p-16 rounded-3xl text-center space-y-8 animate-fade-in">
+          <div className="inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-gradient-to-br from-purple-500 to-blue-500 glow mb-4">
+            <Mail className="w-10 h-10 text-white" />
           </div>
           
-          <h2 className="text-4xl md:text-5xl font-bold">
+          <h2 className="text-4xl md:text-6xl font-bold tracking-tight">
             Be the First to Know
           </h2>
           
-          <p className="text-xl text-foreground/70">
-            Join our early access list and get exclusive updates on Lumina Pulse's development, 
-            plus special launch pricing when we go live.
+          <p className="text-lg md:text-xl text-foreground/60 max-w-2xl mx-auto font-light leading-relaxed">
+            Join our early access list for exclusive updates on Lumina Pulse's development 
+            and special launch pricing when we go live.
           </p>
 
-          <form onSubmit={handleSubmit} className="max-w-md mx-auto pt-4">
-            <div className="flex flex-col sm:flex-row gap-3">
+          <form onSubmit={handleSubmit} className="max-w-lg mx-auto pt-4">
+            <div className="flex flex-col sm:flex-row gap-4">
               <Input
                 type="email"
-                placeholder="Enter your email"
+                placeholder="your@email.com"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="glass border-white/30 text-white placeholder:text-white/50 text-lg flex-1"
+                className="glass border-white/30 text-white placeholder:text-white/40 text-lg flex-1 h-14 rounded-xl px-6"
                 disabled={isSubmitted}
               />
               <Button 
                 type="submit"
                 size="lg"
                 disabled={isSubmitted}
-                className="glass glass-hover text-white border-white/30 glow whitespace-nowrap"
+                className="glass-strong glass-hover text-white font-semibold glow whitespace-nowrap h-14 px-8 rounded-xl"
               >
                 {isSubmitted ? (
                   <>
@@ -87,7 +87,7 @@ const EmailSignup = () => {
             </div>
           </form>
 
-          <p className="text-sm text-foreground/50 pt-2">
+          <p className="text-sm text-foreground/40 pt-2">
             We respect your privacy. Unsubscribe at any time.
           </p>
         </div>
