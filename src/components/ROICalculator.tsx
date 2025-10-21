@@ -89,7 +89,7 @@ const ROICalculator = () => {
           </div>
 
           <div className="grid md:grid-cols-2 gap-5 pt-6 relative z-10">
-            <Card className="glass border-white/30 rounded-2xl relative overflow-hidden group">
+            <Card className="glass rounded-2xl relative overflow-hidden group">
               <div className="absolute top-0 right-0 w-32 h-32 bg-cyan-500/10 rounded-full blur-3xl group-hover:scale-150 transition-transform duration-700" />
               <CardHeader className="pb-3 relative z-10">
                 <CardTitle className="text-xl font-bold text-gradient-alt">Improved ROI</CardTitle>
@@ -106,7 +106,7 @@ const ROICalculator = () => {
               </CardContent>
             </Card>
 
-            <Card className="glass border-white/30 rounded-2xl relative overflow-hidden group">
+            <Card className="glass rounded-2xl relative overflow-hidden group">
               <div className="absolute top-0 right-0 w-32 h-32 bg-purple-500/10 rounded-full blur-3xl group-hover:scale-150 transition-transform duration-700" />
               <CardHeader className="pb-3 relative z-10">
                 <CardTitle className="text-xl font-bold text-gradient">Time Saved</CardTitle>
@@ -123,7 +123,7 @@ const ROICalculator = () => {
               </CardContent>
             </Card>
 
-            <Card className="glass border-white/30 rounded-2xl relative overflow-hidden group">
+            <Card className="glass rounded-2xl relative overflow-hidden group">
               <div className="absolute top-0 right-0 w-32 h-32 bg-orange-500/10 rounded-full blur-3xl group-hover:scale-150 transition-transform duration-700" />
               <CardHeader className="pb-3 relative z-10">
                 <CardTitle className="text-xl font-bold text-gradient-alt">Additional Revenue</CardTitle>
@@ -140,7 +140,7 @@ const ROICalculator = () => {
               </CardContent>
             </Card>
 
-            <Card className="glass-strong border-white/40 rounded-2xl animate-pulse-glow relative overflow-hidden group">
+            <Card className="glass-strong rounded-2xl animate-pulse-glow relative overflow-hidden group">
               <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 via-purple-500/10 to-orange-500/10" />
               <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-cyan-400 via-purple-400 to-orange-400" />
               <CardHeader className="pb-3 relative z-10">

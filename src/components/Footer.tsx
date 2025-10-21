@@ -4,7 +4,7 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="py-16 px-4 border-t border-white/10 mt-12 relative">
+    <footer className="py-16 px-4 mt-12 relative">
       {/* Decorative gradient line */}
       <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-cyan-400 to-transparent opacity-50" />
       
