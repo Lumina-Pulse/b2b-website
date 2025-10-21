@@ -10,22 +10,22 @@ const features = [
   },
   {
     icon: Target,
-    title: "Competitor Tracking",
-    description: "Monitor competitor strategies, pricing, and campaigns in real-time across all channels.",
+    title: "Seamless Integration",
+    description: "Connect into your existing chatting platforms, CRMs, and analytics tools for perfect user experience.",
     color: "from-purple-500 to-pink-500",
     accentColor: "purple"
   },
   {
     icon: TrendingUp,
-    title: "Trend Prediction",
-    description: "Stay ahead of market shifts with predictive analytics and emerging trend identification.",
+    title: "Trend Analysis",
+    description: "Access and analyze historical data to identify patterns, validate strategies, and anticipate long-term shifts.",
     color: "from-orange-500 to-red-500",
     accentColor: "orange"
   },
   {
     icon: Zap,
-    title: "Instant Alerts",
-    description: "Get notified immediately when important changes occur in your market landscape.",
+    title: "Daily Updates",
+    description: "Receive a curated summary of significant market changes and competitive shifts every morning with suggested action steps.",
     color: "from-blue-500 to-cyan-500",
     accentColor: "blue"
   }
@@ -48,10 +48,10 @@ const Features = () => {
             </div>
           </div>
           <h2 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight">
-            Enterprise-Grade <span className="text-gradient">Intelligence</span>
+            Data-Driven Marketing <span className="text-gradient">Intelligence</span>
           </h2>
           <p className="text-lg md:text-xl text-foreground/60 max-w-2xl mx-auto font-light">
-            Harness the power of AI to make data-driven marketing decisions with confidence
+            Unlock the full potential of your marketing team with advanced AI data processing and seamless system integration.
           </p>
         </div>
 

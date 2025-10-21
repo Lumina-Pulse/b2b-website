@@ -38,8 +38,8 @@ const Hero = () => {
         </h1>
         
         <p className="text-lg md:text-xl text-foreground/70 max-w-3xl mx-auto leading-relaxed font-light">
-          Enterprise-grade AI web scraping that uncovers competitive insights, 
-          tracks market trends, and delivers actionable intelligence for data-driven marketing decisions. Automate what your team spends hours on manually.
+          Your AI teammate that uncovers brand insights, 
+          tracks market trends, and delivers actionable intelligence for data-driven marketing decisions. <span className="font-semibold">Replace hours of manual monitoring with automated daily intelligence.</span>
         </p>
         
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-6">
@@ -69,16 +69,16 @@ const Hero = () => {
 
         <div className="grid grid-cols-1 w-3/5 md:grid-cols-3 md:w-full gap-4 md:gap-8 pt-16 max-w-4xl mx-auto">
           <div className="glass p-4 md:p-6 rounded-2xl space-y-2 hover:scale-105 transition-transform duration-300">
-            <div className="text-2xl md:text-4xl font-bold text-gradient-alt">10x</div>
-            <div className="text-xs md:text-sm text-foreground/60 font-medium">Faster Insights</div>
+            <div className="text-2xl md:text-4xl font-bold text-gradient-alt">24h</div>
+            <div className="text-xs md:text-sm text-foreground/60 font-medium">Insight Refresh Cycle</div>
           </div>
           <div className="glass p-4 md:p-6 rounded-2xl space-y-2 hover:scale-105 transition-transform duration-300">
-            <div className="text-2xl md:text-4xl font-bold text-gradient">95%</div>
-            <div className="text-xs md:text-sm text-foreground/60 font-medium">Accuracy Rate</div>
+            <div className="text-2xl md:text-4xl font-bold text-gradient">75%</div>
+            <div className="text-xs md:text-sm text-foreground/60 font-medium">Time Saved Weekly</div>
           </div>
           <div className="glass p-4 md:p-6 rounded-2xl space-y-2 hover:scale-105 transition-transform duration-300">
-            <div className="text-2xl md:text-4xl font-bold text-gradient-alt">24/7</div>
-            <div className="text-xs md:text-sm text-foreground/60 font-medium">Monitoring</div>
+            <div className="text-2xl md:text-4xl font-bold text-gradient-alt">30+</div>
+            <div className="text-xs md:text-sm text-foreground/60 font-medium">Data Sources Tracked</div>
           </div>
         </div>
       </div>

@@ -66,13 +66,13 @@ const ROICalculator = () => {
             <div className="space-y-3 group">
               <Label htmlFor="people" className="text-sm font-semibold text-foreground/80 flex items-center gap-2">
                 <Users className="w-4 h-4 text-cyan-400" />
-                Number of Researchers
+                Number of Workers
               </Label>
               <Input
                 id="people"
                 type="number"
                 value={numberOfPeople}
-                min={0}
+                min={1}
                 onChange={(e) => setNumberOfPeople(Number(e.target.value))}
                 className="glass border-white/30 text-white text-lg h-12 rounded-xl focus:border-cyan-400/50 transition-colors"
               />
@@ -85,7 +85,7 @@ const ROICalculator = () => {
               <Input
                 id="hours"
                 type="number"
-                min={0}
+                min={1}
                 value={hoursPerWorker}
                 onChange={(e) => setHoursPerWorker(Number(e.target.value))}
                 className="glass border-white/30 text-white text-lg h-12 rounded-xl focus:border-purple-400/50 transition-colors"

@@ -103,10 +103,10 @@ export default {
         },
         "pulse-glow": {
           "0%, 100%": {
-            boxShadow: "0 0 30px rgba(0, 255, 255, 0.4), 0 0 60px rgba(139, 92, 246, 0.3)"
+            boxShadow: "0 0 20px rgba(0, 255, 255, 0.4), 0 0 40px rgba(139, 92, 246, 0.3)"
           },
           "50%": {
-            boxShadow: "0 0 50px rgba(0, 255, 255, 0.6), 0 0 100px rgba(255, 100, 50, 0.4)"
+            boxShadow: "0 0 30px rgba(0, 255, 255, 0.6), 0 0 60px rgba(255, 100, 50, 0.4)"
           }
         },
         "slide-diagonal": {
