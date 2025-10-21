@@ -4,7 +4,7 @@ const features = [
   {
     icon: Brain,
     title: "AI-Powered Analysis",
-    description: "Advanced machine learning algorithms analyze millions of data points to surface actionable insights.",
+    description: "Advanced machine learning algorithms analyze thousands of data points to surface actionable insights.",
     color: "from-cyan-500 to-blue-500",
     accentColor: "cyan"
   },
@@ -62,12 +62,7 @@ const Features = () => {
               className="glass glass-hover p-8 rounded-3xl space-y-5 animate-fade-in group relative overflow-hidden"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
-              {/* Unique corner accent */}
-              <div className="absolute top-0 right-0 w-24 h-24 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                <div className={`absolute top-0 right-0 w-12 h-[2px] bg-gradient-to-l ${feature.color}`} />
-                <div className={`absolute top-0 right-0 w-[2px] h-12 bg-gradient-to-b ${feature.color}`} />
-              </div>
-              
+                         
               <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${feature.color} flex items-center justify-center glow-sm group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 relative`}>
                 <feature.icon className="w-7 h-7 text-white" />
                 <div className={`absolute inset-0 rounded-2xl bg-${feature.accentColor}-400/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />

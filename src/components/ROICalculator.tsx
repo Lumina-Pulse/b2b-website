@@ -1,20 +1,36 @@
 import { useState } from "react";
-import { Calculator, TrendingUp, Clock, DollarSign } from "lucide-react";
+import { Calculator, TrendingUp, Users, DollarSign } from "lucide-react";
 import { Input } from "./ui/input";
 import { Label } from "./ui/label";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "./ui/card";
 
 const ROICalculator = () => {
-  const [monthlySpend, setMonthlySpend] = useState(5000);
-  const [currentROI, setCurrentROI] = useState(150);
-  const [timeSpent, setTimeSpent] = useState(20);
+  const [numberOfPeople, setNumberOfPeople] = useState(5);
+  const [hoursPerWorker, setHoursPerWorker] = useState(1);
+  const [hourlySalary, setHourlySalary] = useState(200);
 
-  // Calculate improvements with Lumina Pulse
-  const improvedROI = currentROI * 1.4; // 40% improvement
-  const timeSaved = timeSpent * 0.7; // 70% time reduction
-  const additionalRevenue = (monthlySpend * (improvedROI - currentROI)) / 100;
-  const annualSavings = additionalRevenue * 12;
-  const laborCostSavings = (timeSpent - timeSaved) * 50 * 4; // $50/hr, 4 weeks
+  // Calculate Lumina package cost based on number of people
+  const getLuminaPackageCost = (people: number) => {
+    if (people === 1) return 0; // Free for one person
+    if (people <= 10) return 2200; // Regular package for 2-5 people
+    return people * 400; // Enterprise pricing for 6+ people
+  };
+  const luminaPackageCost = getLuminaPackageCost(numberOfPeople);
+
+  // Calculate current costs and improvements with Lumina Pulse
+  const totalWeeklyHours = numberOfPeople * hoursPerWorker * 5; // Convert daily to weekly (5 work days)
+  const totalMonthlyHours = totalWeeklyHours * 4; // Approximate monthly hours
+  const currentWeeklyCost = totalWeeklyHours * hourlySalary;
+  const currentMonthlyCost = currentWeeklyCost * 4;
+  const currentAnnualCost = currentMonthlyCost * 12;
+  
+  // With Lumina Pulse: 75% time reduction
+  const timeReductionPercent = 75;
+  const hoursAfterImprovement = totalWeeklyHours * (1 - timeReductionPercent / 100);
+  const newWeeklyCost = hoursAfterImprovement * hourlySalary;
+  const weeklySavings = currentWeeklyCost - newWeeklyCost;
+  const monthlySavings = weeklySavings * 4 - luminaPackageCost;
+  const annualSavings = monthlySavings * 12;
 
   return (
     <section id="roi-calculator" className="py-24 px-4 relative">
@@ -48,60 +64,63 @@ const ROICalculator = () => {
           
           <div className="grid md:grid-cols-3 gap-6 relative z-10">
             <div className="space-y-3 group">
-              <Label htmlFor="spend" className="text-sm font-semibold text-foreground/80 flex items-center gap-2">
-                <DollarSign className="w-4 h-4 text-cyan-400" />
-                Monthly Marketing Spend ($)
+              <Label htmlFor="people" className="text-sm font-semibold text-foreground/80 flex items-center gap-2">
+                <Users className="w-4 h-4 text-cyan-400" />
+                Number of Researchers
               </Label>
               <Input
-                id="spend"
+                id="people"
                 type="number"
-                value={monthlySpend}
-                onChange={(e) => setMonthlySpend(Number(e.target.value))}
+                value={numberOfPeople}
+                min={0}
+                onChange={(e) => setNumberOfPeople(Number(e.target.value))}
                 className="glass border-white/30 text-white text-lg h-12 rounded-xl focus:border-cyan-400/50 transition-colors"
               />
             </div>
             <div className="space-y-3 group">
-              <Label htmlFor="roi" className="text-sm font-semibold text-foreground/80 flex items-center gap-2">
+              <Label htmlFor="hours" className="text-sm font-semibold text-foreground/80 flex items-center gap-2">
                 <TrendingUp className="w-4 h-4 text-purple-400" />
-                Current ROI (%)
+                Hours per Worker/Day
               </Label>
               <Input
-                id="roi"
+                id="hours"
                 type="number"
-                value={currentROI}
-                onChange={(e) => setCurrentROI(Number(e.target.value))}
+                min={0}
+                value={hoursPerWorker}
+                onChange={(e) => setHoursPerWorker(Number(e.target.value))}
                 className="glass border-white/30 text-white text-lg h-12 rounded-xl focus:border-purple-400/50 transition-colors"
               />
             </div>
             <div className="space-y-3 group">
-              <Label htmlFor="time" className="text-sm font-semibold text-foreground/80 flex items-center gap-2">
-                <Clock className="w-4 h-4 text-orange-400" />
-                Hours/Week on Analysis
+              <Label htmlFor="salary" className="text-sm font-semibold text-foreground/80 flex items-center gap-2">
+                <DollarSign className="w-4 h-4 text-orange-400" />
+                Hourly Salary (DKK)
               </Label>
               <Input
-                id="time"
+                id="salary"
                 type="number"
-                value={timeSpent}
-                onChange={(e) => setTimeSpent(Number(e.target.value))}
+                min={0}
+                value={hourlySalary}
+                onChange={(e) => setHourlySalary(Number(e.target.value))}
                 className="glass border-white/30 text-white text-lg h-12 rounded-xl focus:border-orange-400/50 transition-colors"
               />
             </div>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-5 pt-6 relative z-10">
+          <div className="grid md:grid-cols-3 gap-5 pt-6 relative z-10">
             <Card className="glass rounded-2xl relative overflow-hidden group">
               <div className="absolute top-0 right-0 w-32 h-32 bg-cyan-500/10 rounded-full blur-3xl group-hover:scale-150 transition-transform duration-700" />
               <CardHeader className="pb-3 relative z-10">
-                <CardTitle className="text-xl font-bold text-gradient-alt">Improved ROI</CardTitle>
+                <CardTitle className="text-xl font-bold text-gradient-alt">Current Monthly Cost</CardTitle>
                 <CardDescription className="text-foreground/60 text-sm">
-                  With AI-powered insights
+                  Total research team cost
                 </CardDescription>
               </CardHeader>
               <CardContent className="relative z-10">
-                <div className="text-5xl font-bold">{improvedROI.toFixed(1)}%</div>
+                <div className="text-5xl font-bold">{currentMonthlyCost.toLocaleString()} <span className="text-2xl">DKK</span> </div>
                 <div className="text-sm text-cyan-400 mt-3 font-medium flex items-center gap-1">
-                  <TrendingUp className="w-4 h-4" />
-                  +{(improvedROI - currentROI).toFixed(1)}% increase
+                  <Users className="w-4 h-4" />
+                  {totalMonthlyHours} hours total
                 </div>
               </CardContent>
             </Card>
@@ -109,16 +128,39 @@ const ROICalculator = () => {
             <Card className="glass rounded-2xl relative overflow-hidden group">
               <div className="absolute top-0 right-0 w-32 h-32 bg-purple-500/10 rounded-full blur-3xl group-hover:scale-150 transition-transform duration-700" />
               <CardHeader className="pb-3 relative z-10">
-                <CardTitle className="text-xl font-bold text-gradient">Time Saved</CardTitle>
+                <CardTitle className="text-xl font-bold text-gradient">Time Reduction</CardTitle>
                 <CardDescription className="text-foreground/60 text-sm">
-                  Automated analysis
+                  With AI automation
                 </CardDescription>
               </CardHeader>
               <CardContent className="relative z-10">
-                <div className="text-5xl font-bold">{timeSaved.toFixed(1)} hrs</div>
+                <div className="text-5xl font-bold">{timeReductionPercent}%</div>
                 <div className="text-sm text-purple-400 mt-3 font-medium flex items-center gap-1">
-                  <Clock className="w-4 h-4" />
-                  {((1 - timeSaved/timeSpent) * 100).toFixed(0)}% time reduction weekly
+                  <TrendingUp className="w-4 h-4" />
+                  {(totalWeeklyHours - hoursAfterImprovement).toFixed(1)} hours saved/week
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="glass rounded-2xl relative overflow-hidden group">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-indigo-500/10 rounded-full blur-3xl group-hover:scale-150 transition-transform duration-700" />
+              <CardHeader className="pb-3 relative z-10">
+                <CardTitle className="text-xl font-bold text-gradient">Lumina Package Cost</CardTitle>
+                <CardDescription className="text-foreground/60 text-sm">
+                  Monthly subscription
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="relative z-10">
+                <div className="text-5xl font-bold">
+                  {luminaPackageCost === 0 ? "FREE" : (
+                    <>
+                      {luminaPackageCost.toLocaleString()} <span className="text-2xl">DKK</span>
+                    </>
+                  )}
+                </div>
+                <div className="text-sm text-indigo-400 mt-3 font-medium flex items-center gap-1">
+                  <DollarSign className="w-4 h-4" />
+                  {numberOfPeople === 1 ? "Free tier" : numberOfPeople <= 10 ? "Regular plan" : "Enterprise plan"}
                 </div>
               </CardContent>
             </Card>
@@ -126,34 +168,33 @@ const ROICalculator = () => {
             <Card className="glass rounded-2xl relative overflow-hidden group">
               <div className="absolute top-0 right-0 w-32 h-32 bg-orange-500/10 rounded-full blur-3xl group-hover:scale-150 transition-transform duration-700" />
               <CardHeader className="pb-3 relative z-10">
-                <CardTitle className="text-xl font-bold text-gradient-alt">Additional Revenue</CardTitle>
+                <CardTitle className="text-xl font-bold text-gradient-alt">Monthly Savings</CardTitle>
                 <CardDescription className="text-foreground/60 text-sm">
-                  Per month
+                  Net cost reduction
                 </CardDescription>
               </CardHeader>
               <CardContent className="relative z-10">
-                <div className="text-5xl font-bold">${additionalRevenue.toLocaleString()}</div>
+                <div className="text-5xl font-bold">{monthlySavings.toLocaleString()} <span className="text-2xl">DKK</span> </div>
                 <div className="text-sm text-foreground/60 mt-3 font-medium flex items-center gap-1">
                   <DollarSign className="w-4 h-4" />
-                  From improved performance
+                  After Lumina cost
                 </div>
               </CardContent>
             </Card>
 
-            <Card className="glass-strong rounded-2xl animate-pulse-glow relative overflow-hidden group">
+            <Card className="glass-strong rounded-2xl animate-pulse-glow relative overflow-hidden group md:col-span-2">
               <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 via-purple-500/10 to-orange-500/10" />
-              <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-cyan-400 via-purple-400 to-orange-400" />
               <CardHeader className="pb-3 relative z-10">
                 <CardTitle className="text-xl font-bold text-gradient">Annual Impact</CardTitle>
                 <CardDescription className="text-foreground/60 text-sm">
-                  Total yearly value
+                  Total yearly savings
                 </CardDescription>
               </CardHeader>
               <CardContent className="relative z-10">
-                <div className="text-5xl font-bold">${(annualSavings + laborCostSavings).toLocaleString()}</div>
+                <div className="text-5xl font-bold">{annualSavings.toLocaleString()} <span className="text-2xl">DKK</span> </div>
                 <div className="text-sm text-cyan-400 mt-3 font-medium flex items-center gap-1">
                   <TrendingUp className="w-4 h-4" />
-                  Revenue + labor savings
+                  Net labor cost savings
                 </div>
               </CardContent>
             </Card>

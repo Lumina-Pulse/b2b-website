@@ -29,9 +29,9 @@ const Hero = () => {
           <Sparkles className="w-3 h-3 text-orange-300 relative z-10" />
         </div>
         
-        <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold leading-[1.1] tracking-tight">
+        <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold leading-[1.2] tracking-tight">
           Transform Data Into
-          <span className="block text-gradient mt-2 relative">
+          <span className="block text-gradient mt-2 relative pb-2">
             Marketing Gold
             <div className="absolute -top-6 -right-8 w-16 h-16 bg-orange-500/30 rounded-full blur-xl animate-pulse" />
           </span>
@@ -39,7 +39,7 @@ const Hero = () => {
         
         <p className="text-lg md:text-xl text-foreground/70 max-w-3xl mx-auto leading-relaxed font-light">
           Enterprise-grade AI web scraping that uncovers competitive insights, 
-          tracks market trends, and delivers actionable intelligence for data-driven marketing decisions.
+          tracks market trends, and delivers actionable intelligence for data-driven marketing decisions. Automate what your team spends hours on manually.
         </p>
         
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-6">
