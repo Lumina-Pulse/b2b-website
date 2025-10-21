@@ -67,21 +67,18 @@ const Hero = () => {
           </Button>
         </div>
 
-        <div className="grid grid-cols-3 gap-6 md:gap-8 pt-16 max-w-4xl mx-auto">
-          <div className="glass p-6 rounded-3xl space-y-2 relative overflow-hidden group hover:scale-105 transition-transform duration-300">
-            <div className="absolute top-0 right-0 w-20 h-20 bg-cyan-500/20 rounded-full blur-2xl group-hover:scale-150 transition-transform duration-500" />
-            <div className="text-4xl md:text-5xl font-bold text-gradient-alt relative z-10">10x</div>
-            <div className="text-sm md:text-base text-foreground/60 font-medium relative z-10">Faster Insights</div>
+        <div className="grid grid-cols-1 w-3/5 md:grid-cols-3 md:w-full gap-4 md:gap-8 pt-16 max-w-4xl mx-auto">
+          <div className="glass p-4 md:p-6 rounded-2xl space-y-2 hover:scale-105 transition-transform duration-300">
+            <div className="text-2xl md:text-4xl font-bold text-gradient-alt">10x</div>
+            <div className="text-xs md:text-sm text-foreground/60 font-medium">Faster Insights</div>
           </div>
-          <div className="glass p-6 rounded-3xl space-y-2 relative overflow-hidden group hover:scale-105 transition-transform duration-300">
-            <div className="absolute top-0 right-0 w-20 h-20 bg-purple-500/20 rounded-full blur-2xl group-hover:scale-150 transition-transform duration-500" />
-            <div className="text-4xl md:text-5xl font-bold text-gradient relative z-10">95%</div>
-            <div className="text-sm md:text-base text-foreground/60 font-medium relative z-10">Accuracy Rate</div>
+          <div className="glass p-4 md:p-6 rounded-2xl space-y-2 hover:scale-105 transition-transform duration-300">
+            <div className="text-2xl md:text-4xl font-bold text-gradient">95%</div>
+            <div className="text-xs md:text-sm text-foreground/60 font-medium">Accuracy Rate</div>
           </div>
-          <div className="glass p-6 rounded-3xl space-y-2 relative overflow-hidden group hover:scale-105 transition-transform duration-300">
-            <div className="absolute top-0 right-0 w-20 h-20 bg-orange-500/20 rounded-full blur-2xl group-hover:scale-150 transition-transform duration-500" />
-            <div className="text-4xl md:text-5xl font-bold text-gradient-alt relative z-10">24/7</div>
-            <div className="text-sm md:text-base text-foreground/60 font-medium relative z-10">Monitoring</div>
+          <div className="glass p-4 md:p-6 rounded-2xl space-y-2 hover:scale-105 transition-transform duration-300">
+            <div className="text-2xl md:text-4xl font-bold text-gradient-alt">24/7</div>
+            <div className="text-xs md:text-sm text-foreground/60 font-medium">Monitoring</div>
           </div>
         </div>
       </div>

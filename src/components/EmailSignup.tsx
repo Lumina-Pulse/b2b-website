@@ -73,7 +73,7 @@ const EmailSignup = () => {
           
           <div className="relative">
             <h2 className="text-4xl md:text-6xl font-bold tracking-tight mb-4">
-              Be the First to Know
+              Interested in a Demo?
             </h2>
             <div className="absolute -top-4 right-[20%] w-20 h-20 bg-cyan-400/20 rounded-full blur-2xl" />
           </div>
