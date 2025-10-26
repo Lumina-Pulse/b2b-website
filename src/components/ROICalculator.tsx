@@ -25,7 +25,7 @@ const ROICalculator = () => {
   const currentAnnualCost = currentMonthlyCost * 12;
   
   // With Lumina Pulse: 75% time reduction
-  const timeReductionPercent = 75;
+  const timeReductionPercent = 47;
   const hoursAfterImprovement = totalWeeklyHours * (1 - timeReductionPercent / 100);
   const newWeeklyCost = hoursAfterImprovement * hourlySalary;
   const weeklySavings = currentWeeklyCost - newWeeklyCost;
@@ -128,7 +128,7 @@ const ROICalculator = () => {
             <Card className="glass rounded-2xl relative overflow-hidden group">
               <div className="absolute top-0 right-0 w-32 h-32 bg-purple-500/10 rounded-full blur-3xl group-hover:scale-150 transition-transform duration-700" />
               <CardHeader className="pb-3 relative z-10">
-                <CardTitle className="text-xl font-bold text-gradient">Time Reduction</CardTitle>
+                <CardTitle className="text-xl font-bold text-gradient">Time Reduction*</CardTitle>
                 <CardDescription className="text-foreground/60 text-sm">
                   With AI automation
                 </CardDescription>
@@ -200,6 +200,9 @@ const ROICalculator = () => {
             </Card>
           </div>
         </div>
+        
+        <p className="text-white/30 mt-4 ml-8 text-sm">*Based on pilot company case study Q1-Q3 2025</p>
+
       </div>
     </section>
   );

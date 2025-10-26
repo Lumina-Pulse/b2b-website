@@ -73,7 +73,7 @@ const Hero = () => {
             <div className="text-xs md:text-sm text-foreground/60 font-medium">Insight Refresh Cycle</div>
           </div>
           <div className="glass p-4 md:p-6 rounded-2xl space-y-2 hover:scale-105 transition-transform duration-300">
-            <div className="text-2xl md:text-4xl font-bold text-gradient">75%</div>
+            <div className="text-2xl md:text-4xl font-bold text-gradient">47%</div>
             <div className="text-xs md:text-sm text-foreground/60 font-medium">Time Saved Weekly</div>
           </div>
           <div className="glass p-4 md:p-6 rounded-2xl space-y-2 hover:scale-105 transition-transform duration-300">
