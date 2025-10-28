@@ -6,25 +6,25 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "./ui/
 
 const ROICalculator = () => {
   const [numberOfPeople, setNumberOfPeople] = useState(5);
-  const [hoursPerWorker, setHoursPerWorker] = useState(1);
+  const [minutesPerWorker, setMinutesPerWorker] = useState(45);
   const [hourlySalary, setHourlySalary] = useState(200);
 
   // Calculate Lumina package cost based on number of people
   const getLuminaPackageCost = (people: number) => {
     if (people === 1) return 0; // Free for one person
-    if (people <= 10) return 2200; // Regular package for 2-5 people
-    return people * 400; // Enterprise pricing for 6+ people
+    if (people <= 10) return 2200; // Regular package for 2-10 people
+    return people * 350; // Enterprise pricing for 6+ people
   };
   const luminaPackageCost = getLuminaPackageCost(numberOfPeople);
 
   // Calculate current costs and improvements with Lumina Pulse
-  const totalWeeklyHours = numberOfPeople * hoursPerWorker * 5; // Convert daily to weekly (5 work days)
+  const totalWeeklyHours = numberOfPeople * (minutesPerWorker / 60) * 5; // Convert minutes to hours, daily to weekly (5 work days)
   const totalMonthlyHours = totalWeeklyHours * 4; // Approximate monthly hours
   const currentWeeklyCost = totalWeeklyHours * hourlySalary;
   const currentMonthlyCost = currentWeeklyCost * 4;
   const currentAnnualCost = currentMonthlyCost * 12;
   
-  // With Lumina Pulse: 75% time reduction
+  // With Lumina Pulse: 47% time reduction
   const timeReductionPercent = 47;
   const hoursAfterImprovement = totalWeeklyHours * (1 - timeReductionPercent / 100);
   const newWeeklyCost = hoursAfterImprovement * hourlySalary;
@@ -78,16 +78,16 @@ const ROICalculator = () => {
               />
             </div>
             <div className="space-y-3 group">
-              <Label htmlFor="hours" className="text-sm font-semibold text-foreground/80 flex items-center gap-2">
+              <Label htmlFor="minutes" className="text-sm font-semibold text-foreground/80 flex items-center gap-2">
                 <TrendingUp className="w-4 h-4 text-purple-400" />
-                Hours per Worker/Day
+                Minutes per Worker/Day
               </Label>
               <Input
-                id="hours"
+                id="minutes"
                 type="number"
                 min={1}
-                value={hoursPerWorker}
-                onChange={(e) => setHoursPerWorker(Number(e.target.value))}
+                value={minutesPerWorker}
+                onChange={(e) => setMinutesPerWorker(Number(e.target.value))}
                 className="glass border-white/30 text-white text-lg h-12 rounded-xl focus:border-purple-400/50 transition-colors"
               />
             </div>
@@ -117,10 +117,10 @@ const ROICalculator = () => {
                 </CardDescription>
               </CardHeader>
               <CardContent className="relative z-10">
-                <div className="text-5xl font-bold">{currentMonthlyCost.toLocaleString()} <span className="text-2xl">DKK</span> </div>
+                <div className="text-5xl font-bold">{Math.round(currentMonthlyCost).toLocaleString()} <span className="text-2xl">DKK</span> </div>
                 <div className="text-sm text-cyan-400 mt-3 font-medium flex items-center gap-1">
                   <Users className="w-4 h-4" />
-                  {totalMonthlyHours} hours total
+                  {totalMonthlyHours.toPrecision(2)} hours total
                 </div>
               </CardContent>
             </Card>
@@ -174,7 +174,7 @@ const ROICalculator = () => {
                 </CardDescription>
               </CardHeader>
               <CardContent className="relative z-10">
-                <div className="text-5xl font-bold">{monthlySavings.toLocaleString()} <span className="text-2xl">DKK</span> </div>
+                <div className="text-5xl font-bold">{Math.round(monthlySavings).toLocaleString()} <span className="text-2xl">DKK</span> </div>
                 <div className="text-sm text-foreground/60 mt-3 font-medium flex items-center gap-1">
                   <DollarSign className="w-4 h-4" />
                   After Lumina cost
