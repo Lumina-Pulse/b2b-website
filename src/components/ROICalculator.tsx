@@ -120,7 +120,7 @@ const ROICalculator = () => {
                 <div className="text-5xl font-bold">{Math.round(currentMonthlyCost).toLocaleString()} <span className="text-2xl">DKK</span> </div>
                 <div className="text-sm text-cyan-400 mt-3 font-medium flex items-center gap-1">
                   <Users className="w-4 h-4" />
-                  {totalMonthlyHours.toPrecision(2)} hours total
+                  {Math.round(totalMonthlyHours)} hours total
                 </div>
               </CardContent>
             </Card>
